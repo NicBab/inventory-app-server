@@ -2,6 +2,8 @@
   {
     "productId": "d35623ee-bef6-42b2-8776-2f99f8bb4782",
     "name": "Pinkscale Blazing Star",
+    "mfr": "B Star",
+    "sku": "12345897",
     "price": 456.04,
     "rating": 2.25,
     "stockQuantity": 124834
@@ -9,6 +11,8 @@
   {
     "productId": "8ac1ac77-7358-425e-be16-0bdde9f02e59",
     "name": "Gila Milkvetch",
+     "mfr": "Gila",
+    "sku": "12345321",
     "price": 899.05,
     "rating": 3.56,
     "stockQuantity": 799402
@@ -16,6 +20,8 @@
   {
     "productId": "1afc136b-4d9f-4e8e-aace-8e1df908a404",
     "name": "Rocky Mountain Zinnia",
+     "mfr": "Rocky",
+    "sku": "34567564",
     "price": 264.37,
     "rating": 3.23,
     "stockQuantity": 842192
@@ -23,6 +29,8 @@
   {
     "productId": "af84cc12-4fea-4f58-aece-f2ce92ca9580",
     "name": "Guadalupe Suncup",
+     "mfr": "Sun",
+    "sku": "2345678834",
     "price": 555.93,
     "rating": 4.09,
     "stockQuantity": 236333
@@ -30,6 +38,8 @@
   {
     "productId": "86e3bb1c-2f5d-4774-98f3-4df7cddd0a0f",
     "name": "Saline Phlox",
+     "mfr": "Salox",
+    "sku": "123456789993",
     "price": 82.62,
     "rating": 4.8,
     "stockQuantity": 601208

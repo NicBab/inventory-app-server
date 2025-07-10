@@ -11,6 +11,8 @@ CREATE TABLE "Users" (
 CREATE TABLE "Products" (
     "productId" TEXT NOT NULL,
     "name" TEXT NOT NULL,
+    "mfr" TEXT,
+    "sku" TEXT,
     "price" DOUBLE PRECISION NOT NULL,
     "rating" DOUBLE PRECISION,
     "stockQuantity" INTEGER NOT NULL,

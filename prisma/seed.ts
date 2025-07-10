@@ -25,21 +25,35 @@ async function deleteAllData(orderedFileNames: string[]) {
 async function main() {
   const dataDirectory = path.join(__dirname, "seedData");
 
-  const orderedFileNames = [
-    "products.json",
+  // Delete children first
+  const deleteOrder = [
+    "expenseByCategory.json",
     "expenseSummary.json",
+    "expenses.json",
+    "purchaseSummary.json",
+    "purchases.json",
+    "salesSummary.json",
+    "sales.json",
+    "users.json",
+    "products.json", // last to delete
+  ];
+
+  await deleteAllData(deleteOrder);
+
+  // Then insert parents first
+  const insertOrder = [
+    "products.json", // insert products first
+    "users.json",
     "sales.json",
     "salesSummary.json",
     "purchases.json",
     "purchaseSummary.json",
-    "users.json",
     "expenses.json",
+    "expenseSummary.json",
     "expenseByCategory.json",
   ];
 
-  await deleteAllData(orderedFileNames);
-
-  for (const fileName of orderedFileNames) {
+  for (const fileName of insertOrder) {
     const filePath = path.join(dataDirectory, fileName);
     const jsonData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     const modelName = path.basename(fileName, path.extname(fileName));
