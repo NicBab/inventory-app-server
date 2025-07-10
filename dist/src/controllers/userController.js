@@ -13,8 +13,18 @@ exports.getUsers = void 0;
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 const getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
     try {
-        const users = yield prisma.users.findMany();
+        const search = (_a = req.query.search) === null || _a === void 0 ? void 0 : _a.toString();
+        const users = yield prisma.users.findMany({
+            where: search
+                ? {
+                    OR: [
+                        { name: { contains: search, mode: "insensitive" } },
+                    ],
+                }
+                : undefined, // return all if no search
+        });
         res.json(users);
     }
     catch (error) {
