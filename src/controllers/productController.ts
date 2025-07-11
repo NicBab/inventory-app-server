@@ -9,7 +9,7 @@ export const getProducts = async (
 ): Promise<void> => {
   try {
     const search = req.query.search?.toString();
- const products = await prisma.products.findMany({
+    const products = await prisma.products.findMany({
       where: search
         ? {
             OR: [
@@ -31,7 +31,8 @@ export const createProduct = async (
   res: Response
 ): Promise<void> => {
   try {
-    const { productId, name, mfr, sku, price, rating, stockQuantity } = req.body;
+    const { productId, name, mfr, sku, price, rating, stockQuantity } =
+      req.body;
     const product = await prisma.products.create({
       data: {
         productId,
@@ -46,5 +47,20 @@ export const createProduct = async (
     res.status(201).json(product);
   } catch (error) {
     res.status(500).json({ message: "Error creating product" });
+  }
+};
+
+export const deleteProduct = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    const { id } = req.params;
+    const deletedProduct = await prisma.products.delete({
+      where: { productId: id },
+    });
+    res.status(200).json({ message: "Product deleted", deletedProduct });
+  } catch (error) {
+    res.status(500).json({ message: "Error deleting product" });
   }
 };
